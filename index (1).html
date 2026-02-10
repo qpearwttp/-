@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ข้อมูลรถเร่ ตลาดรัตนากร บ้านอำเภอ</title>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #fde2e4, #e4f0f5);
+    }
+
+    .form-wrapper {
+      width: 100%;
+      max-width: 420px;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(6px);
+      padding: 2rem;
+      border-radius: 18px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      color: #444;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.7rem;
+      margin-bottom: 1.2rem;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #b8d8e8;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 14px;
+      border: none;
+      background: #b8d8e8;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    button:hover {
+      background: #a3cfe3;
+    }
+
+    .success {
+      display: none;
+      margin-top: 1rem;
+      text-align: center;
+      color: #4caf50;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- iframe ซ่อน เพื่อไม่ให้ redirect ไป Google Form -->
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+  <form
+    class="form-wrapper"
+    action="https://docs.google.com/forms/d/e/1FAIpQLSdPSMRSD1uA5-tjYYzbTgpwpepGp8r9niMXPZO7UDD6R0gscQ/formResponse"
+    method="POST"
+    target="hidden_iframe"
+    onsubmit="handleSubmit()"
+  >
+    <h1>ข้อมูลรถเร่ ตลาดรัตนากร บ้านอำเภอ</h1>
+
+    <label>ทะเบียนรถ / รหัสรถเร่</label>
+    <input
+      type="number"
+      name="entry.651534975"
+      required
+    />
+
+    <label>จำนวนเงิน</label>
+    <input
+      type="number"
+      name="entry.446525419"
+      required
+    />
+
+    <button type="submit">บันทึกข้อมูล</button>
+
+    <div class="success" id="successMsg">
+      ✅ บันทึกข้อมูลเรียบร้อย
+    </div>
+  </form>
+
+  <script>
+    function handleSubmit() {
+      document.getElementById("successMsg").style.display = "block";
+      setTimeout(() => {
+        document.querySelector("form").reset();
+      }, 600);
+    }
+  </script>
+
+</body>
+</html>
